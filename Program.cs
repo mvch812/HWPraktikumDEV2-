@@ -4,6 +4,7 @@
 // 1.2.	элементы, больше 8
 // 1.3.	знакочередования
 
+Console.WriteLine();
 
 void FillArrayA(int minValue, int maxValue, int[] A) // Метод, заполняющий массив A случайными двузначными целыми числами от minValue до maxValue
 {
@@ -27,6 +28,16 @@ int[] A = new int[20];
 Console.WriteLine("Случайный массив:");
 FillArrayA(-100, 100, A);
 
+void PrintArray(int[] A)
+{
+    int index = 0;
+    while (index < A.Length)
+    {
+        Console.Write(A[index] + " ");
+        index++;
+    }
+}
+
 //Определяем длину массива B для подзадачи 1.1:
 int countLengthB = 1;
 int max = A[0];
@@ -39,8 +50,7 @@ for (int index = 1; index < A.Length; index++)
     }
 }
 int[] B = new int[countLengthB]; //Заполняем массив B для подзадачи 1.1.
-Console.WriteLine();
-Console.WriteLine("Массив B, созданный на основе массива A путем отбрасывания элементов, нарушающих порядок возрастания:");
+
 int indexB = 1;
 max = A[0];
 B[0] = A[0];
@@ -53,10 +63,10 @@ for (int index = 1; index < A.Length; index++)
         indexB++;
     }
 }
-for (indexB = 0; indexB < B.Length; indexB++) //Печатаем массив B, по условию подзадачи 1.2.
-{
-    Console.Write(B[indexB] + " ");
-}
+//Печатаем массив B, по условию подзадачи 1.2.
+Console.WriteLine();
+Console.WriteLine("Массив B, созданный на основе массива A путем отбрасывания элементов, нарушающих порядок возрастания:");
+PrintArray(B);
 
 //Определяем длину массива B для подзадачи 1.2:
 int countLengthC = 0;
@@ -67,22 +77,23 @@ for (int index = 0; index < A.Length; index++)
         countLengthC++;
     }
 }
-int[] С = new int[countLengthC]; //Заполняем массив B для подзадачи 1.2.
-Console.WriteLine();
-Console.WriteLine("Массив B, созданный на основе массива A путем отбрасывания элементов, больших восьми:");
+int[] C = new int[countLengthC]; //Заполняем массив B для подзадачи 1.2.
+
 int indexC = 0;
 for (int index = 0; index < A.Length; index++)
 {
     if (A[index] <= 8)
     {
-        С[indexC] = A[index];
+        C[indexC] = A[index];
         indexC++;
     }
 }
-for (indexC = 0; indexC < С.Length; indexC++) //Печатаем массив B, по условию подзадачи 1.2.
-{
-    Console.Write(С[indexC] + " ");
-}
+
+
+//Печатаем массив B, по условию подзадачи 1.2.
+Console.WriteLine();
+Console.WriteLine("Массив B, созданный на основе массива A путем отбрасывания элементов, больших восьми:");
+PrintArray(C);
 
 bool Znak(int j)
 {
@@ -105,8 +116,7 @@ for (int index = 1; index < A.Length; index++)
 }
 
 int[] D = new int[countLengthD]; //Заполняем массив B для подзадачи 1.3.
-Console.WriteLine();
-Console.WriteLine("Массив B, созданный на основе массива A путем отбрасывания элементов, нарушающих знакочередование:");
+
 int indexD = 1;
 D[0] = A[0];
 for (int index = 1; index < A.Length; index++)
@@ -117,7 +127,8 @@ for (int index = 1; index < A.Length; index++)
         indexD++;
     }
 }
-for (indexD = 0; indexD < D.Length; indexD++) //Печатаем массив B, по условию подзадачи 1.3.
-{
-    Console.Write(D[indexD] + " ");
-}
+//Печатаем массив B, по условию подзадачи 1.3.
+
+Console.WriteLine();
+Console.WriteLine("Массив B, созданный на основе массива A путем отбрасывания элементов, нарушающих знакочередование:");
+PrintArray(D);
